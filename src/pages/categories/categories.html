@@ -4,7 +4,7 @@
     <ion-title>Categories</ion-title>
   </ion-navbar>
   <ion-toolbar color="primary">
-    <ion-searchbar (input)="getItems($event)"></ion-searchbar>
+    <ion-searchbar [(ngModel)]='searchText' [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)" ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -14,10 +14,12 @@
   <ion-list no-lines>
     <button ion-item *ngFor="let c of categories" (click)="openModal('CategoryPage',{category:c})">
       {{ c.name }}
-    </button> 
+    </button>
   </ion-list>
 
   <ion-fab right bottom>
-    <button ion-fab color="primary" (click)="openModal('CategoryPage')"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="primary" (click)="openModal('CategoryPage')">
+      <ion-icon name="add"></ion-icon>
+    </button>
   </ion-fab>
 </ion-content>

@@ -12,6 +12,7 @@ import { BasePage } from '../../pages/base/base'
 })
 export class CategoriesPage extends CrudPage {
   categories : Category[];
+  searchText :string;
   constructor(injector: Injector ) {
     super(injector);
   }
@@ -38,6 +39,17 @@ export class CategoriesPage extends CrudPage {
   onReload(refresher?: any) {
     this.categories = [];
     this.loadData(refresher);
+  }
+  getItems(e : any){
+    let val = e.target.value
+    if(val && val.trim() != ''){
+      this.categories =this.categories.filter(item=>{
+        return (item.name.startsWith(val));
+      })
+    }else{
+      this.onReload();
+    }
+    
   }
   
 }
