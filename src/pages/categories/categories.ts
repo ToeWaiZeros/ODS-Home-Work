@@ -44,7 +44,7 @@ export class CategoriesPage extends CrudPage {
     let val = e.target.value
     if(val && val.trim() != ''){
       this.categories =this.categories.filter(item=>{
-        return (item.name.startsWith(val));
+        return (item.name.includes(val));
       })
     }else{
       this.onReload();
