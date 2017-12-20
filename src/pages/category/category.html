@@ -1,0 +1,25 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ isEditView ? 'Edit' : 'New' }}</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="closeModal()">
+              <ion-icon name="close"></ion-icon>
+            </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-label color="primary" floating >Name</ion-label>
+        <ion-input [(ngModel)]="category.name"></ion-input>
+      </ion-item>
+      <div padding>
+        <button ion-button *ngIf="!isEditView" block (click)="onCreate(category)">Create</button>
+        <button ion-button *ngIf="isEditView" block (click)="onUpdate(category)">Update</button>
+        <button ion-button *ngIf="isEditView" block color="danger" (click)="onDelete(category)">Delete</button>
+      </div>
+      
+</ion-content>
