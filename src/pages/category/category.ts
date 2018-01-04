@@ -10,8 +10,8 @@ import { CategoryProvider as Category } from '../../providers/category/category'
 })
 export class CategoryPage extends CrudPage {
   category: any;
+  updateCategory : any;
   title: string;
-  providerCategory: Category
   isEditView: boolean = false;
   constructor(injector: Injector) {
     super(injector);
@@ -21,7 +21,7 @@ export class CategoryPage extends CrudPage {
     } else {
       this.category = new Category();
     }
-    this.providerCategory = new Category();
+    this.updateCategory = new Category();
   }
  
   ionViewWillEnter() {

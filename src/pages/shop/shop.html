@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ isEditView ? 'Edit' : 'New' }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form>
+    <ion-item>
+      <ion-label color="primary" floating>Category</ion-label>
+      <ion-select [(ngModel)]="Shop.categoryId['id']" interface="popover" name="categoryType">
+        <ion-option *ngFor="let category of categories" [(value)]="category.id">{{category.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" floating>Name</ion-label>
+      <ion-input [(ngModel)]="Shop.name" name="name"></ion-input>
+    </ion-item>
+  </form>
+  <div padding>
+    <input type="file" id="file" name="file" id="shopImage" (change)="getImg($event)">
+  </div>
+  <div padding>
+    <button ion-button *ngIf="!isEditView" block (click)="onCreate(Shop)">Create</button>
+    <button ion-button *ngIf="isEditView" block (click)="onUpdate1()">Update</button>
+    <button ion-button *ngIf="isEditView" block color="danger" (click)="onDelete(Shop)">Delete</button>
+  </div>
+
+</ion-content>

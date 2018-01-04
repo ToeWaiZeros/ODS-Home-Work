@@ -4,7 +4,7 @@
     <ion-title>Categories</ion-title>
   </ion-navbar>
   <ion-toolbar color="primary">
-    <ion-searchbar [(ngModel)]='searchText' [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)" ></ion-searchbar>
+    <ion-searchbar [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)" ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 

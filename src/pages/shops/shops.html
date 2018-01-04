@@ -1,0 +1,26 @@
+<ion-header>
+  
+    <ion-navbar color="primary">
+      <ion-title>Shops</ion-title>
+    </ion-navbar>
+    <ion-toolbar color="primary">
+      <ion-searchbar [showCancelButton]="shouldShowCancel" (ionChange)="getItems($event)" ></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+  
+    <ion-list no-lines>
+      <button ion-item *ngFor="let s of Shops" (click)="openModal('ShopPage',{Shop:s})">
+        {{ s.name }}
+      </button>
+    </ion-list>
+  
+    <ion-fab right bottom>
+      <button ion-fab color="primary" (click)="openModal('ShopPage')">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
+  </ion-content>
+  

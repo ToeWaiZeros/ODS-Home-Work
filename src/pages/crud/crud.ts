@@ -7,6 +7,7 @@ export class CrudPage extends BasePage {
   }
 
   onCreate(pName: any) {
+    console.log(pName);
     pName.save().then(
       data => {
         this.closeModal(data);

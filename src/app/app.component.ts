@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import Parse from 'parse';
-import { HomePage } from '../pages/home/home';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,12 +11,12 @@ import { HomePage } from '../pages/home/home';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage:any = HomePage;
+  rootPage:string = 'CategoriesPage';
 
   pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    Parse.initialize('KwBEtmGcFuldtcrx1jdmhazXCmAQFgDhMAzcMjie', '0sqBrQQA9PY5GcWW1gVte2HjIY1UDWQswBwnzwEF');
+    Parse.initialize('R5IvdVGLu9tYOWOzMaEWx4rvbsw32ZodQGWoUegS', 'JYZSvLK4UsDAU6r0h0BdQFTvst4xvnPcXB4kNfl6');
     Parse.serverURL = 'https://parseapi.back4app.com/';
 
     this.initializeApp();
@@ -25,6 +24,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Categories', component: 'CategoriesPage' },
+      { title: 'Shops', component: 'ShopsPage' },
     ];
 
   }
